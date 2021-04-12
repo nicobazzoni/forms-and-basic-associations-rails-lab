@@ -35,7 +35,7 @@
       end
   
     
-  
+        has_many :notes
   # add associations here
 end
  
