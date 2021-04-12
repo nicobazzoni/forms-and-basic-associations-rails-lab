@@ -1,3 +1,4 @@
+require 'pry'
 class SongsController < ApplicationController
   def index
     @songs = Song.all
@@ -13,8 +14,9 @@ class SongsController < ApplicationController
 
   def create
     artist = Artist.find_or_create_by(name: song_params[:artist_name])
+    
     @song = artist.songs.build(song_params)
-    @song = Song.new(song_params)
+    
 
     if @song.save
       redirect_to songs_path
